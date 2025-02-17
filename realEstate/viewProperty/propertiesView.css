@@ -48,6 +48,17 @@ h1 {
     color: #fff;
 }
 
+/* Container for cards - CSS Grid */
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(3, auto); /* 3 rows */
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
 /* New Card Styles */
 .card {
     width: 24rem;
@@ -71,6 +82,19 @@ h1 {
     transition: opacity .2s ease-out;
 }
 
+/* Darkening Overlay */
+.card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Text inside card */
 .card h2 {
     position: absolute;
     inset: auto auto 30px 30px;
@@ -111,6 +135,10 @@ h1 {
 .card:hover img {
     transition: opacity .3s ease-in;
     opacity: 1;
+}
+
+.card:hover .overlay {
+    opacity: 1; /* Show the dark overlay on hover */
 }
 
 .material-symbols-outlined {
